@@ -1,0 +1,51 @@
+.Post_list_main
+  .Post_list_main_contents
+    .Post_list_main_contents_list
+      = current_user.name
+      さんのお気に入り投稿一覧
+    -# .search
+    -#   = form_with url: search_posts_path, local: true, method: :get, class: "search-form" do |f|
+    -#     = f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+    -#     = f.submit "検索", class: "search-btn"
+    -# .contents.row
+
+    
+    .Post_list_middle
+      .Post_list_block
+        - @like_post.each do |post|
+          .Post_list_div_wrapper
+            .Post_list_table
+              .Post_list_title
+                = link_to post_path(id: post.post_id), method: :get, class:"Post_list_title__font" do
+                  = Post.find(post.post_id).title
+              .Post_list_book_info__image
+                - if Post.find(post.post_id).image.present?
+                  = image_tag Post.find(post.post_id).image.url, class:"Post_list_image" 
+                - else
+                  .Post_list_no_image
+                    画像はありません
+              .Post_list_book_info
+                .Post_list_book_info__content
+                  = simple_format(Post.find(post.post_id).content)
+              .Post_list_user_name
+                投稿者：
+                = link_to user_path(post.user_id), class:"Post_list_contributor" do
+                  = User.find_by(id: post.user_id).name
+              .Post_list_link_wrapper
+                .Post_list_content_tag
+                  関連タグ :
+                  - Post.find(post.post_id).tag_list.each do |tag|
+                    = link_to posts_path(tag_name: tag), class:"Post_list_tag" do
+                      = tag              
+                .Post_list_comment_count
+                  コメント数:
+                  = Post.find(post.post_id).comments.count
+                .Post_list_comment_like
+                  お気に入り数:
+                  = Post.find(post.post_id).likes.count
+                .Post_list_show
+                  = link_to post_path(post.post_id), method: :get, class:"Post_list_title__font" do
+                    詳細ページへ
+= paginate @like_post, class: "pagination"
+.Footer
+

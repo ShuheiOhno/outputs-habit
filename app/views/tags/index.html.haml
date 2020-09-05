@@ -1,0 +1,6 @@
+タグ付き投稿一覧
+%br
+- Post.tagged_with("#{params[:tag_name]}").each do |list|
+  = list.title
+  = list.content
+  = list.user.name

@@ -1,0 +1,134 @@
+.Post_list_main {
+  display: flex;
+  width: 100vw;
+}
+
+.Post_list_main_contents {
+  height: calc(100vh - 80px);
+  width: 100vw;
+  overflow: scroll;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.Post_list_main{
+  display: flex;
+  width: 100vw;
+}
+
+
+.Post_list_middle {
+  height: calc(100vh - 80px);
+  width: 100vw;
+  overflow: scroll;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.search {
+  margin-left: 30px;
+}
+
+.search-input{
+  width: 300px;
+}
+
+.add_search {
+  border: 1px solid lightgray;
+  width: 300px;
+  margin-left: 30px;
+}
+
+.add_search_link{
+  text-decoration: none;
+}
+
+
+
+
+
+
+.Post_list_block {
+  display: flex;
+  flex-wrap:wrap;
+  padding: 20px;
+}
+
+
+.Post_list_div_wrapper {
+  margin: 0 30px;
+  text-align: center;
+}
+
+.Post_list_table{
+  margin-bottom: 30px;
+  
+}
+
+.Post_list_title{
+  font-size: 25px;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &__font{
+    text-decoration: none;
+  }
+}
+
+.Post_list_book_info{
+  display: flex;
+  height: 120px;
+  
+  &__image{
+    height: 100px;
+    width: 150px;
+    border: 1px solid lightgray;
+    margin: 5px;
+  }
+  &__content{
+    margin:5px ;
+    width: 150px;
+    height: 100px;
+    border: solid 1px black;
+    overflow: scroll;
+    word-wrap: break-word;
+  }
+}
+.Post_list_no_image {
+  font-size: 15px;
+  text-align: center;
+  padding:40px 20px 10px 20px;
+}
+
+.Post_list_image {
+  width: 150px;
+  height: 100px;
+}
+
+
+.Post_list_link_wrapper_comment{
+  display: flex;
+  &__show{
+    margin-left: 10px;
+  }
+  &__edit{
+    margin-left: 10px;
+  }
+  &__delete{
+    margin-left: 10px;
+  }
+}
+
+.Post_list_tag{
+  text-decoration: none;
+}
+
+.Post_list_contributor{
+  text-decoration: none;
+}
+
+
+.pagination{
+  text-align: center;
+}

@@ -1,0 +1,41 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user_name {
+  padding: 15px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.Like_link {
+  padding: 5px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.Like_link_font {
+  text-decoration: none;
+}
+
+
+.Like_users{
+  margin: 20px;
+}
+
+.Favorite {
+  margin: 20px;
+  overflow: scroll;
+}
+
+.Favorite_title{
+  margin-bottom: 10px;
+}
+
+
+// user/index
+.Post_list_main_contents_list {
+  padding: 15px;
+  text-align: center;
+  font-size: 30px;
+}

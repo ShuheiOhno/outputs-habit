@@ -1,0 +1,111 @@
+.Main
+  .Left
+    .Post_user_wrapper
+      .Post_user
+        = link_to another_user_post_list_post_path(@post.id), class:"Post_user_font" do
+          = User.find_by(id: @post.user_id).name
+        さんの他の投稿タイトル
+      .Post_user_list
+        - Post.where(user_id: @post.user_id).each do |post|
+          .Post_user_list_title
+            = link_to post_path(post.id), class:"Post_user_list_title_font" do
+              = post.title
+
+  .Main_contents
+    .Post_show_font
+      投稿詳細ページ
+    .Middle
+      .Block
+        .Title
+          タイトル：
+          = @post.title
+        .User_name
+          投稿者：
+          = User.find_by(id: @post.user_id).name
+        .Book_info
+          .Book_info__image
+            .Book_info__image
+              - if @post.image.present?
+                = image_tag @post.image.url, class:"image" 
+              - else
+                .No_image
+                  画像はありません
+          .Content 
+            .Content__contents 
+            = simple_format(@post.content) 
+        .Link_wrapper
+          .Link_wrapper_comment
+          - if current_user.already_liked?(@post)
+            .Link_wrapper_comment__like
+              = button_to post_like_path(@post), class:"like_del", method: :delete do
+                '取り消す' 
+          - else
+            .Link_wrapper_comment__like
+              = button_to post_likes_path(@post), class:"like_push" do
+                = icon("far", "thumbs-up")
+          
+                
+
+          .Like_count
+            お気に入り登録:
+            = @post.likes.count
+          .comment_count
+            コメント数:
+            = @post.comments.count
+          -# ダミー
+          .TTT
+          - if user_signed_in? && current_user.id == @post.user_id
+            .Post_show_link
+              .Link_wrapper_comment__edit
+                = link_to edit_post_path(@post.id), class:"post_show_edit_btn" do
+                  編集
+              .Link_wrapper_comment__delete
+                = link_to post_path(@post.id), class:"post_show_del_btn", method: :delete do
+                  削除
+
+    .Comment_wrapper
+      .Comment__text
+        - if current_user
+          .Commnet_field
+          コメントする
+          = form_with model: [@post, @comment], class:'text_submit', local: true do |f|
+            = f.text_area :text, class:'textbox',rows: "3"
+            %br
+            = f.submit 'Send', class:'form_submit'    
+      .Comment_lists
+        .Asynchronous
+          コメント一覧
+        -if @comments
+          - @comments.each do |comment|
+            .comment
+              .comment__text
+                = simple_format(comment.text)
+                .comment_info
+                  .comment_info__user
+                    投稿者：
+                    = link_to user_path(comment.user_id), class:"comment_info_user_font" do
+                      = comment.user.name
+                      さん
+                  .comment_info__time
+                    =comment.created_at
+              
+              - if current_user.id == comment.user.id
+                .comment_link
+                  .comment_link__del  
+                    = link_to post_comment_path(comment.id), class:"comment_link_font", method: :delete do
+                      削除                   
+                    = link_to edit_post_comment_path(id: comment.id, post_id: comment.post_id), class:"comment_link_font"  do
+                      編集
+                    
+
+  .Right
+    .Like_users
+      .Like_users_font
+        お気に入り登録した人
+      - @post.liked_users.each do |like_user|
+        = link_to user_path(like_user.id), class: "Like_users_link" do
+          .Like_users__name
+            = like_user.name
+            さん
+
+.Footer

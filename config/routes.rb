@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'posts#index'
+  resources :users, only: [:index ,:show]
+
+  resources :posts do
+    member do
+      get 'post_list'
+      get 'another_user_post_list'
+    end
+    resources :likes, only: [:create, :destroy]
+    resources :tags, only: [:index, :search]
+    resources :comments, only: [:destroy, :show, :edit, :update, :create]
+    collection do
+      get 'search'
+    end
+  end
 end

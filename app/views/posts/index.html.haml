@@ -1,0 +1,78 @@
+.Main
+  .Left
+    .Random
+      .example_message
+        こんな投稿もあります！
+      .update_message_front
+        更新すると、
+      .update_message
+        表示される投稿が変わります。
+      - @randoms.each do |random|
+        .Random_info
+          .Random_info__title
+            タイトル:
+            = link_to post_path(id: random.id),class:"main_link_css" do
+              = random.title
+          .Random_info__name
+            投稿者:
+            = random.user.name
+          .Random_info__tag
+            タグ:
+            = random.tag_list
+          
+  .Main_contents
+    .new_post_font
+      新着/検索
+    .search
+      = form_with url: search_posts_path, local: true, method: :get, class: "search-form" do |f|
+        = f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+        = f.submit "検索", class: "search-btn"
+    .contents.row
+    
+    .Middle
+      .Block
+        -# = image_tag "/images/output.jpg", class:"image-output"
+        - @posts.each do |post|
+          .Post_table
+            .Title
+              = post.title
+            .User_name
+            = link_to user_path(post.user_id),class:"main_link_css" do
+              投稿者：
+              = User.find_by(id: post.user_id).name
+            .Book_info
+              .Book_info__image
+                - if post.image.present?
+                  = image_tag post.image.url, class:"image" 
+                - else
+                  .No_image
+                    画像はありません
+              .Book_info__content
+                = simple_format(post.content)
+            .Link_wrapper
+              .Link_wrapper_comment
+                .Link_wrapper_comment__show
+                  = link_to post_path(post.id), class:"main_link_css" , method: :get do
+                    コメントする/お気に入り
+              - if user_signed_in? && current_user.id == post.user_id
+                .Link_wrapper_comment__edit
+                  = link_to edit_post_path(post.id),class:"main_link_css" do
+                    編集
+                .Link_wrapper_comment__delete
+                  = link_to post_path(post.id),class:"main_link_css", method: :delete do
+                    削除
+                
+
+              .content_tag
+                関連タグ :
+                - post.tag_list.each do |tag|
+                  = link_to posts_path(tag_name: tag), class:"main_link_css" do
+                    = tag              
+              .comment_count
+                コメント数:
+                = post.comments.count
+              .comment_like
+                いいね数:
+                = post.likes.count
+  .Right
+.Footer

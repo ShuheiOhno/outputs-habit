@@ -1,0 +1,160 @@
+.Post_user_wrapper {
+  width: 20vw;
+  margin: 20px;
+}
+
+.Post_user_font {
+  text-decoration: none;
+}
+
+.Post_user_list_title {
+  margin: 5px 0;
+  width: 18vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Post_show_font {
+  padding: 15px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.Post_user_list_title_font {
+  text-decoration: none;
+}
+
+
+.Link_wrapper{
+  display: flex;
+  margin: 5px 10px;
+}
+
+.Link_wrapper_comment{
+  display: flex;
+  &__edit{
+    margin-left: 10px;
+  }
+  &__delete{
+    margin-left: 10px;
+  }
+  &__like{
+    margin-left: 10px;
+  }
+}
+
+.Like_count{
+  margin-left: 10px;
+}
+
+.Content {
+  width: 500px;
+  margin: 0 10px;
+  border: solid 1px black;
+  overflow: scroll;
+  word-wrap: break-word;
+}
+
+.Comment_wrapper{
+  display: flex;
+  margin: 30px;
+}
+
+.Commnet_text{
+  margin-left: 30px;
+}
+
+// コメント欄
+.textbox{
+  height: 400px;
+  width: 400px;
+}
+
+.Comment_lists{
+  // background-color: lightyellow;
+  width: 500px;
+  height: 300px;
+  margin: 0 30px;
+}
+
+.comment {
+  margin: 10px;
+  padding: 10px;
+  border : solid 1px #333 ;
+  &__name{
+    text-decoration: none;
+  }
+  &__text{
+    width: 300px;
+    white-space: normal;
+    margin: 10px 0;
+    font-size: 20px;
+    word-wrap: break-word;
+  }
+  &__time{
+    font-size: 8px;
+  }
+}
+
+.comment_info{
+  display: flex;
+  margin-top: 15px;
+  &__user {
+    font-size: 12px;
+  }
+  &__time {
+    font-size: 12px;
+    margin-left: 20px;
+  }
+}
+
+
+.comment_link{
+  display: flex;
+  &__del {
+    font-size: 12px;
+  }
+  &__show {
+    margin-left: 15px;
+    font-size: 12px;
+  }
+}
+
+.comment_info_user_font {
+  text-decoration: none;
+}
+
+.comment_link_font{
+  text-decoration: none;
+}
+
+
+.Like_users_font {
+  margin-bottom: 5px;
+}
+
+.Like_users_link {
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+
+.Post_show_link{
+margin:0 0 0 auto;
+display: flex;
+}
+
+.post_show_edit_btn{
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.post_show_del_btn {
+  text-decoration: none;
+  margin-left: 5px;
+}
+// .Post_edit_del_link{
+//   text-decoration: none;
+//   margin-left: 5px;
+// }

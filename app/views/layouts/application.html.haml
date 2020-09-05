@@ -1,0 +1,50 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title OutputsHabit
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    -# = javascript_include_tag 'application'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'layouts/notifications'
+    - if user_signed_in?
+      .Header
+        .Header_info
+          .Login_message
+            .login_text
+              = User.find_by(id: current_user.id).name
+              さんがログインしています。
+          .Header_menu
+            .Header_menu__page
+              = link_to root_path, class: "font" do
+                新着/検索
+            .Header_menu__post_list
+              = link_to post_list_post_path(1), class: "font" do
+                投稿一覧
+            .Header_menu__page
+              = link_to user_path(current_user.id), class: "font" do
+                マイページ
+            .Header_menu__post
+              = link_to new_post_path, class: "font" do
+                投稿する
+            .Header_menu__logout
+              = link_to destroy_user_session_path, class: "font", method: :delete do
+                ログアウト
+    - else
+      .Header
+        .Header_info
+          .Login_message
+            ようこそ、Output habitへ！
+          
+          -# .Header_menu
+          -#   .Header_menu__page
+          -#     -# = link_to root_path do
+          -#     Output habitとは？(工事中)
+          -#   .Header_menu__page
+          -#     -# = link_to user_path(current_user.id) do
+          -#     使い方（工事中）
+      
+    = yield
