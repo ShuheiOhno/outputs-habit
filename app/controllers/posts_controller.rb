@@ -80,6 +80,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
+    # binding.pry
     params.require(:post).permit(:title, :image, :content, :tag_list).merge(user_id: current_user.id)
   end
 

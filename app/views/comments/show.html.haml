@@ -1,0 +1,28 @@
+コメント詳細ページ
+%br
+.Comment_lists
+  コメント一覧
+  .comment
+    .comment__name
+      = link_to user_path(@comment.user_id) do
+        = @comment.user.name
+        さん
+      .comment__text
+        = simple_format(@comment.text)
+      .comment__time
+        = @comment.created_at
+
+      -# .comment__del
+      -#   = link_to comment_path(@comment.id), metnod: :delete do
+      -#     削除
+      -# .comment__edit
+      -#   = link_to edit_comment_path(@comment.id) do
+      -#     編集
+
+      .comment__del
+        = link_to post_comment_path(@comment.id), metnod: :delete do
+          削除
+      .comment__edit
+        = link_to edit_post_comment_path(@comment.id) do
+          編集
+-# - comment = Comment.find_by(id:params[:post_id])

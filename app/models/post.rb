@@ -1,7 +1,6 @@
 class Post < ApplicationRecord
   acts_as_taggable
   
-  mount_uploader :image, ImageUploader
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
@@ -16,5 +15,6 @@ class Post < ApplicationRecord
       Post.all
     end
   end
-
+  
+  mount_uploader :image, ImageUploader
 end
