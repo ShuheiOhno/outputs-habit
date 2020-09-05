@@ -76,5 +76,6 @@ gem 'carrierwave'
 gem 'rmagick'
 
 gem "font-awesome-sass"
+gem 'fog-aws'
 
 gem 'kaminari'
