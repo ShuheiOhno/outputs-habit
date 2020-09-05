@@ -1,0 +1,19 @@
+.Comment_main
+  .Comment_edit
+    .comment_edit_font
+      コメント編集画面
+    .edit_comment_wrapper
+      .Comment_text
+        - if current_user
+          .Commnet_field
+            コメントを編集する
+          = form_with model: [@post, @comment], class:'text_submit', local: true do |f|
+            = f.text_area :text, class:'textbox',rows: "3"
+            %br
+            = f.submit 'Send'
+      .comment_edit
+        .edit_front_comment
+          元のコメント
+        .front_comment
+          = Comment.find_by(id: params[:id]).text
+.Footer
