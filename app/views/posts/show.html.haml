@@ -31,8 +31,8 @@
                 .No_image
                   画像はありません
           .Content 
-            .Content__contents 
-            = simple_format(@post.content) 
+            .Content_contents 
+              = simple_format(@post.content) 
         .Link_wrapper
           .Link_wrapper_comment
           - if current_user.already_liked?(@post)
@@ -69,7 +69,7 @@
           .Commnet_field
           コメントする
           = form_with model: [@post, @comment], class:'text_submit', local: true do |f|
-            = f.text_area :text, class:'textbox',rows: "3"
+            = f.text_area :text, class:'textbox', rows: "3"
             %br
             = f.submit 'Send', class:'form_submit'    
       .Comment_lists
