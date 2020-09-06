@@ -4,16 +4,6 @@
   background-color: rgb(236, 234, 234);
 }
 
-.New_post{
-  margin-bottom: 20px;
-}
-
-.New_post_message {
-  padding: 10px;
-  font-size: 30px;
-}
-
-
 
 .New_form{
   height: calc(100vh - 80px);
@@ -27,14 +17,27 @@
   margin-bottom: 20px;
 }
 
+.New_post{
+  margin-bottom: 20px;
+}
+
+.New_post_message {
+  padding: 10px;
+  font-size: 30px;
+}
 
 .new-title{
+  padding: 5px;
   height: 30px;
   width: 500px;
 }
 
 .new-textbox{
+  padding: 5px;
   height: 200px;
   width: 600px;
 }
 
+.font-control {
+  padding: 5px;
+}

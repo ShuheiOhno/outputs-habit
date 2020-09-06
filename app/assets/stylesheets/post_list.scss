@@ -57,7 +57,6 @@
 
 .Post_list_div_wrapper {
   margin: 0 30px;
-  text-align: center;
 }
 
 .Post_list_table{
@@ -84,11 +83,10 @@
     height: 100px;
     width: 150px;
     border: 1px solid lightgray;
-    margin: 5px;
   }
   &__content{
-    margin:5px ;
-    width: 150px;
+    padding: 5px;
+    width: 140px;
     height: 100px;
     border: solid 1px black;
     overflow: scroll;
@@ -97,7 +95,7 @@
 }
 .Post_list_no_image {
   font-size: 15px;
-  text-align: center;
+  // text-align: center;
   padding:40px 20px 10px 20px;
 }
 
