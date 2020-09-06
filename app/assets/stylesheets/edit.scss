@@ -1,6 +1,6 @@
 .Edit{
   background-color: rgb(236, 234, 234);
-  height: calc(100vh - 50px);
+  height: calc(100vh - 30px);
   width: 100vw;
 }
 .Edit_form{
@@ -9,6 +9,14 @@
   margin: 0 auto;
   background-color: white;
   padding: 30px;
+}
+
+.Edit_post{
+  margin-bottom: 20px;
+}
+
+.Edit_post_message {
+  font-size: 20px;
 }
 
 .Edit_field{
