@@ -26,7 +26,8 @@
                     画像はありません
               .Post_list_book_info
                 .Post_list_book_info__content
-                  = simple_format(Post.find(post.post_id).content)
+                  = safe_join(Post.find(post.post_id).content.split("\n"),tag(:br))
+                  -# = simple_format(Post.find(post.post_id).content)
               .Post_list_user_name
                 投稿者：
                 = link_to user_path(post.user_id), class:"Post_list_contributor" do

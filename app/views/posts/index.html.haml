@@ -49,7 +49,8 @@
                   .No_image
                     画像はありません
               .Book_info__content
-                = simple_format(post.content)
+                = safe_join(post.content.split("\n"),tag(:br))
+                -# = simple_format(post.content)
             .Link_wrapper
               .Link_wrapper_comment
                 .Link_wrapper_comment__show

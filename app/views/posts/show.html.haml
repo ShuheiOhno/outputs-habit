@@ -32,7 +32,8 @@
                   画像はありません
           .Content 
             .Content_contents 
-              = simple_format(@post.content) 
+              = safe_join(@post.content.split("\n"),tag(:br))
+              -# = simple_format(@post.content) 
         .Link_wrapper
           .Link_wrapper_comment
           - if current_user.already_liked?(@post)
@@ -79,7 +80,8 @@
           - @comments.each do |comment|
             .comment
               .comment__text
-                = simple_format(comment.text)
+                = safe_join(comment.text.split("\n"),tag(:br))
+                -# = simple_format(comment.text)
                 .comment_info
                   .comment_info__user
                     投稿者：
